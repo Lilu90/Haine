@@ -1,0 +1,29 @@
+.login_form {
+    width: 250px;
+
+}
+.home_background {
+    width: 100%;
+    height: 550px;
+    background-image: url("../images/pxfuel.jpg");
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #9CA4FF;
+}
+.registration_background {
+    max-width: 100%;
+    height: 550px;
+    background-image: url("../images/flower.jpg");
+    max-width: 100%;
+    max-height: 100%;
+}
+.users.table {
+    border: #1a202c;
+}
+.ft-25 {
+    font-size: 25px;
+}
+.ft-14 {
+    font-size: 14px;
+}
+
