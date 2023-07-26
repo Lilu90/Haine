@@ -33,9 +33,9 @@
         <a class="btn btn-link" href="{{ route('registration') }}">
             Register
         </a>
-        <a class="btn btn-link" href="{{ route('categories) }}">
-            Categories
-        </a>
+{{--        <a class="btn btn-link" href="{{ route('categories) }}">--}}
+{{--            Categories--}}
+{{--        </a>--}}
     @endif
 
 </div>
