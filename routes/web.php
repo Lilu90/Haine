@@ -5,10 +5,11 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ClothesController;
-use App\Http\Controllers\AdminController;
 use App\Http\Middleware\Admin\AdminMiddleware;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,13 +28,9 @@ Route::post('/login', [AuthenticationController::class, 'login'])->name('login_p
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 Route::get('/registration', [AuthenticationController::class, 'registration'])->name('registration');
 Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
-Route::get('/clothes', [ClothesController::class, 'clothes'])->name('clothes');
-Route::get('/ categories', [ClothesController::class, ' Categories1Controller'])->name(' categories');
-
+Route::get('/items', [ItemsController::class, 'items'])->name('items');
 
 Route::prefix('/admin')->middleware([AdminMiddleware::class])->group(function () {
-
-    Route::post('/', [AdminController::class, 'admin'])->name('admin');
 
     Route::prefix('/users')->group(function () {
         Route::get('/', [UsersController::class, 'usersView'])->name('users');
@@ -53,5 +50,8 @@ Route::prefix('/admin')->middleware([AdminMiddleware::class])->group(function ()
         Route::get('/delete/{brand_id}', [BrandController::class, 'delete'])->name('deleteBrand');
     });
 
+    Route::prefix('/items')->group(function () {
+        Route::post('/create', [ItemsController::class, 'createItem'])->name('createItem');
+    });
 
 });

@@ -43,19 +43,19 @@ class AuthenticationController extends Controller
     public function register(HttpRequest $request) {
 
         if (!$request->get('password')) {
-            throw new \Exception('Nu am gasit parola');
+            throw new \Exception('I could not find the password');
         }
         if (!$request->get('password_confirmation')) {
-            throw new \Exception('Nu am gasit password confirmationu');
+            throw new \Exception('I did not find password confirmation');
         }
         if ($request->get('password') != $request->get('password_confirmation')) {
-            throw new \Exception('confirmationu nu este egal cu parola');
+            throw new \Exception('Confirmation is not equal to password');
         }
         if (!$request->get('name')) {
-            throw new \Exception('Nu am gasit numele');
+            throw new \Exception('I could not find the name');
         }
         if (!$request->get('email')) {
-            throw new \Exception('Nu am gasit emailu');
+            throw new \Exception('I could not find the email');
         }
 
 
@@ -67,7 +67,7 @@ class AuthenticationController extends Controller
 
 
 
-        dd($request->all());
+//        dd($request->all());
     }
 
     public function logout(Request $request) {

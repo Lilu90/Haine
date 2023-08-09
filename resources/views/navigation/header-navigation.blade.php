@@ -5,14 +5,11 @@
     <a class="btn btn-link " href="{{  route('home') }}">
         Home
     </a>
-    <a class="btn btn-link" href="{{  route('clothes') }}">
-        Clothes
+    <a class="btn btn-link" href="{{  route('items') }}">
+        Catalog
     </a>
     @if(auth()->user())
         @if(auth()->user()->admin)
-            <a class="btn btn-link" href="{{ route('admin') }}">
-                Admin
-            </a>
             <a class="btn btn-link" href="{{ route('users') }}">
                 Users
             </a>
@@ -28,14 +25,11 @@
         </a>
     @else
         <a class="btn btn-link" href="{{ route('login') }}">
-            Login
+            Sing In
         </a>
         <a class="btn btn-link" href="{{ route('registration') }}">
-            Register
+            Create Account
         </a>
-{{--        <a class="btn btn-link" href="{{ route('categories) }}">--}}
-{{--            Categories--}}
-{{--        </a>--}}
     @endif
 
 </div>

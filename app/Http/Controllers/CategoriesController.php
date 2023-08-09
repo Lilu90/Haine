@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     public function create(Request $request) {
         $numeleLaCategorie = $request->get('category_name');
         if(Category::where('name', $numeleLaCategorie)->first()) {
-            throw new \Exception("Categoria cu numele {$numeleLaCategorie} deja exista");
+            throw new \Exception("The category with the name {$numeleLaCategorie} already exists");
         }
         $categ = new Category;
         $categ->name = $numeleLaCategorie;

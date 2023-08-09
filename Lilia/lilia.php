@@ -1,38 +1,20 @@
 <?php
 
-class UserStore{
-    private $users = array();
+use Lilia\Car\Car;
 
-    function addUser( $name, $mail, $pass) {
-        if( isset( $this->users[$mail])) {
-            throw new Exception("User {$mail} already in the system");
-        }
-        if(strlen($pass) < 5 ) {
-            throw new Exception(" Password must have 5 or more letters");
-        }
-        $this->users[$mail] = array ('pass' => $pass, 'mail' => $mail, 'name' => $name);
 
-        return true;
-    }
+if (! function_exists('lilia')) {
+    function lilia(): void {
 
-    function notifyPasswordFailure($mail) {
-      if(isset( $this->users[$mail] )) {
-          $this->users[$mail]['failed']=time();
-      }
-    }
 
-    function getUser($mail) {
-        return ($this->users[$mail]);
+        $mashina = new Car();
+        $motor = $mashina->findDetails('motor');
+        $vin = $mashina->findDetails('vin');
+
+        $person = $mashina->getResponsiblePhone('venice');
+
+        dd("Name: {$person['name']}, Phone: {$person['phone']}");
     }
 }
-
-$store = new UserStore();
-$store->addUser("bob williams", "bob@example.com", "12345");
-
-$user = $store->getUser("bob@example.com");
-print_r($user);
-
-
-
 
 
